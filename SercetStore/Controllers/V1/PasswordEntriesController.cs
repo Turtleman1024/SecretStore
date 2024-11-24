@@ -40,8 +40,8 @@ public class PasswordEntriesController : ControllerBase
     /// </summary>
     /// <param name="entryId">The password entry id</param>
     /// <returns>The password entry</returns>
-    [HttpGet, Route(ApiRoutes.Entries.GetUserPasswordById, Name = "GetUserPasswordByIdAync")]
-    public async Task<IActionResult> GetUserPasswordByIdAync(int entryId)
+    [HttpGet, Route(ApiRoutes.Entries.GetPasswordEntryById, Name = "GetPasswordEntryByIdAync")]
+    public async Task<IActionResult> GetPasswordEntryByIdAync(int entryId)
     {
         var entry = await _businessService.GetPasswordEntryByIdAsync(entryId);
         if (entry == null)
