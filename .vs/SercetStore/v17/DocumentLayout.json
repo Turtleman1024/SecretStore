@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\controllers\\v1\\passwordentriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\controllers\\v1\\passwordentriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\contracts\\v1\\apiroutes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\contracts\\v1\\apiroutes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\datastore\\mssqlstore\\secretstoredatastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\datastore\\mssqlstore\\secretstoredatastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\business\\services\\passwordentriesbusinessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\business\\services\\passwordentriesbusinessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\dbo\\secretstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\dbo\\secretstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\datastore\\interface\\isecretstoredatastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\datastore\\interface\\isecretstoredatastore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\models\\passwordentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\models\\passwordentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\business\\interfaces\\ipasswordentriesbusinessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\business\\interfaces\\ipasswordentriesbusinessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|c:\\users\\kmurr\\onedrive\\desktop\\programs\\sercetstore\\sercetstore\\dbo\\secretstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A519A618-4362-4BF5-AFC2-97BCD5043BBC}|SercetStore\\SecretStore.csproj|solutionrelative:sercetstore\\dbo\\secretstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SecretStore.sql ",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\dbo\\SecretStore.sql",
+              "RelativeDocumentMoniker": "SercetStore\\dbo\\SecretStore.sql",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\dbo\\SecretStore.sql",
+              "RelativeToolTip": "SercetStore\\dbo\\SecretStore.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-24T09:25:25.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SecretStoreDataStore.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\DataStore\\MsSqlStore\\SecretStoreDataStore.cs",
+              "RelativeDocumentMoniker": "SercetStore\\DataStore\\MsSqlStore\\SecretStoreDataStore.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\DataStore\\MsSqlStore\\SecretStoreDataStore.cs",
+              "RelativeToolTip": "SercetStore\\DataStore\\MsSqlStore\\SecretStoreDataStore.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAADwv1EAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T08:19:53.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PasswordEntry.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Models\\PasswordEntry.cs",
+              "RelativeDocumentMoniker": "SercetStore\\Models\\PasswordEntry.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Models\\PasswordEntry.cs",
+              "RelativeToolTip": "SercetStore\\Models\\PasswordEntry.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:55:14.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PasswordEntriesBusinessService.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Business\\Services\\PasswordEntriesBusinessService.cs",
+              "RelativeDocumentMoniker": "SercetStore\\Business\\Services\\PasswordEntriesBusinessService.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Business\\Services\\PasswordEntriesBusinessService.cs",
+              "RelativeToolTip": "SercetStore\\Business\\Services\\PasswordEntriesBusinessService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACIAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:13:20.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PasswordEntriesController.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Controllers\\V1\\PasswordEntriesController.cs",
+              "RelativeDocumentMoniker": "SercetStore\\Controllers\\V1\\PasswordEntriesController.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Controllers\\V1\\PasswordEntriesController.cs",
+              "RelativeToolTip": "SercetStore\\Controllers\\V1\\PasswordEntriesController.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAD4v0gAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:50:38.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApiRoutes.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Contracts\\V1\\ApiRoutes.cs",
+              "RelativeDocumentMoniker": "SercetStore\\Contracts\\V1\\ApiRoutes.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Contracts\\V1\\ApiRoutes.cs",
+              "RelativeToolTip": "SercetStore\\Contracts\\V1\\ApiRoutes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T09:34:57.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ISecretStoreDataStore.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\DataStore\\Interface\\ISecretStoreDataStore.cs",
+              "RelativeDocumentMoniker": "SercetStore\\DataStore\\Interface\\ISecretStoreDataStore.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\DataStore\\Interface\\ISecretStoreDataStore.cs",
+              "RelativeToolTip": "SercetStore\\DataStore\\Interface\\ISecretStoreDataStore.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T08:19:16.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IPasswordEntriesBusinessService.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Business\\Interfaces\\IPasswordEntriesBusinessService.cs",
+              "RelativeDocumentMoniker": "SercetStore\\Business\\Interfaces\\IPasswordEntriesBusinessService.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Business\\Interfaces\\IPasswordEntriesBusinessService.cs",
+              "RelativeToolTip": "SercetStore\\Business\\Interfaces\\IPasswordEntriesBusinessService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:08:31.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Program.cs",
+              "RelativeDocumentMoniker": "SercetStore\\Program.cs",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\Program.cs",
+              "RelativeToolTip": "SercetStore\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:53:43.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SercetStore\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\appsettings.Development.json",
+              "RelativeToolTip": "SercetStore\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAB2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-23T10:04:32.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\appsettings.json",
+              "RelativeDocumentMoniker": "SercetStore\\appsettings.json",
+              "ToolTip": "C:\\Users\\kmurr\\OneDrive\\Desktop\\Programs\\SercetStore\\SercetStore\\appsettings.json",
+              "RelativeToolTip": "SercetStore\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-23T09:10:40.798Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

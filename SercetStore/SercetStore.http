@@ -1,0 +1,6 @@
+@SecretStore_HostAddress = http://localhost:5206
+
+GET {{SecretStore_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
