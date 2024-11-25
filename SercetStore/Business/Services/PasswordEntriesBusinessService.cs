@@ -5,47 +5,55 @@ using SecretStore.Models;
 
 namespace SecretStore.Business.Services;
 
-public class PasswordEntriesBusinessService : IPasswordEntriesBusinessService
+public class PasswordEntriesBusinessService(ISecretStoreDataStore secretStoreDataStore) : IPasswordEntriesBusinessService
 {
-    private readonly ISecretStoreDataStore _secretStoreDataStore;
+    private readonly ISecretStoreDataStore _secretStoreDataStore = secretStoreDataStore ?? throw new ArgumentNullException(nameof(secretStoreDataStore));
 
-    public PasswordEntriesBusinessService(ISecretStoreDataStore secretStoreDataStore)
+    public async Task<PasswordEntry?> CreatePasswordEntryAsync(PasswordEntry newPasswordEntry, CancellationToken cancellationToken = default)
     {
-        _secretStoreDataStore = secretStoreDataStore ?? throw new ArgumentNullException(nameof(secretStoreDataStore));
-    }
+        var entryId = await _secretStoreDataStore.CreatePasswordEntryAsync(newPasswordEntry, cancellationToken);
 
-    public async Task<PasswordEntry> CreatePasswordEntryAsync(PasswordEntry newPasswordEntry)
-    {
-        var entryId = await _secretStoreDataStore.CreatePasswordEntryAsync(newPasswordEntry);
-
-        var entry = await _secretStoreDataStore.GetPasswordEntryAsync(entryId);
+        var entry = await _secretStoreDataStore.GetPasswordEntryAsync(entryId, cancellationToken);
 
         return entry;
     }
 
-    public async Task<bool> DeletePasswordEntryAsync(int entryId)
+    public async Task<bool> DeletePasswordEntryAsync(int entryId, CancellationToken cancellationToken = default)
     {
-        var deleted = await _secretStoreDataStore.DeletePasswordEntryAsync(entryId);
+        var deleted = await _secretStoreDataStore.DeletePasswordEntryAsync(entryId, cancellationToken);
 
         return deleted;
     }
 
-    public async Task<List<PasswordEntry>> GetPasswordEntriesAsync()
+    public async Task<List<PasswordEntry?>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default)
     {
-        var entries = await _secretStoreDataStore.GetPasswordEntriesAsync();
+        var entries = await _secretStoreDataStore.GetPasswordEntriesAsync(cancellationToken);
 
         return entries;
     }
 
-    public async Task<PasswordEntry> GetPasswordEntryByIdAsync(int entryId)
+    public async Task<PasswordEntry?> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default)
     {
-        var entry = await _secretStoreDataStore.GetPasswordEntryAsync(entryId);
+        var entry = await _secretStoreDataStore.GetPasswordEntryAsync(entryId, cancellationToken);
 
         return entry;
     }
 
-    public Task<PasswordEntry> UpdatePasswordEntryAsync(int entryId, JsonPatchDocument<PasswordEntry> entryPatch)
+    public async Task<PasswordEntry?> UpdatePasswordEntryAsync(int entryId, JsonPatchDocument<PasswordEntry> entryPatch, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var entry = await _secretStoreDataStore.GetPasswordEntryAsync(entryId, cancellationToken);
+
+        if (entry == null)
+        {
+            return entry;
+        }
+
+        entryPatch.ApplyTo(entry);
+
+        await _secretStoreDataStore.UpdatePasswordEntryAsync(entry, cancellationToken);
+
+        entry = await _secretStoreDataStore.GetPasswordEntryAsync(entryId, cancellationToken);
+
+        return entry;
     }
 }
