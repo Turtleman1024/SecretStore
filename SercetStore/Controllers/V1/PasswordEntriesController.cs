@@ -21,7 +21,7 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// </summary>
     /// <returns>List of User Passwords</returns>
     [HttpGet, Route(ApiRoutes.Entries.GetPasswordEntries, Name = "GetPasswordEntriesAsync")]
-    public async Task<ActionResult<IReadOnlyList<PasswordEntry>>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default)
+    public async Task<IActionResult> GetPasswordEntriesAsync(CancellationToken cancellationToken = default)
     {
         var passwordEntries = await _businessService.GetPasswordEntriesAsync(cancellationToken);
 
@@ -39,7 +39,7 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// <param name="entryId">The password entry id</param>
     /// <returns>The password entry</returns>
     [HttpGet, Route(ApiRoutes.Entries.GetPasswordEntryById, Name = "GetPasswordEntryByIdAsync")]
-    public async Task<ActionResult<PasswordEntry>> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default)
     {
         var entry = await _businessService.GetPasswordEntryByIdAsync(entryId, cancellationToken);
         if (entry == null)
@@ -56,7 +56,7 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// <param name="newOwner">The new entry</param>
     /// <returns>The created entry </returns>
     [HttpPost, Route(ApiRoutes.Entries.CreatePasswordEntry, Name = "CreatePasswordEntryAsync")]
-    public async Task<ActionResult<PasswordEntry>> CreatePasswordEntryAsync([FromBody] PasswordEntry entry, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> CreatePasswordEntryAsync([FromBody] PasswordEntry entry, CancellationToken cancellationToken = default)
     {
         var result = await _businessService.CreatePasswordEntryAsync(entry, cancellationToken);
 
@@ -75,7 +75,7 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// <param name="entryPatch">The field to patch</param>
     /// <returns>The patched entry</returns>
     [HttpPatch, Route(ApiRoutes.Entries.UpdatePasswordEntry, Name = "UpdatePasswordEntryAsync")]
-    public async Task<ActionResult<PasswordEntry>> UpdatePasswordEntryAsync(int entryId, [FromBody] JsonPatchDocument<PasswordEntry> entryPatch, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> UpdatePasswordEntryAsync(int entryId, [FromBody] JsonPatchDocument<PasswordEntry> entryPatch, CancellationToken cancellationToken = default)
     {
         if (entryPatch == null || entryPatch.Operations.Count == 0)
         {

@@ -3,17 +3,13 @@ using Microsoft.Data.SqlClient;
 using SecretStore.DataStore.Interface;
 using SecretStore.Models;
 using System.Data;
+using static SecretStore.Contracts.V1.ApiRoutes;
 
 namespace SecretStore.DataStore.MsSqlStore;
 
-public class SecretStoreDataStore : ISecretStoreDataStore
+public class SecretStoreDataStore(IConfiguration configuration) : ISecretStoreDataStore
 {
-    private readonly IConfiguration _configuration;
-
-    public SecretStoreDataStore(IConfiguration configuration)
-    {
-        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-    }
+    private readonly IConfiguration _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
 
     private async Task<SqlConnection> GetConnectionAsync(CancellationToken cancellationToken = default)
     {
@@ -57,10 +53,10 @@ public class SecretStoreDataStore : ISecretStoreDataStore
             deleted = p.Get<int>("@Count");
         }
 
-        return (deleted == 1);
+        return (deleted > 0);
     }
 
-    public async Task<PasswordEntry?> GetPasswordEntryAsync(int entryId, CancellationToken cancellationToken = default)
+    public async Task<PasswordEntry> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default)
     {
         var entry = new PasswordEntry();
 
@@ -68,7 +64,8 @@ public class SecretStoreDataStore : ISecretStoreDataStore
         {
             var p = new DynamicParameters(new { Id = entryId });
 
-            entry = (await cn.QueryAsync<PasswordEntry>("dbo.GetPasswordEntries", p, commandTimeout: 0, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+            var result = (await cn.QueryAsync<PasswordEntry>("dbo.GetPasswordEntries", p, commandTimeout: 0, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+            entry = result ?? new PasswordEntry();
         }
 
         return entry;
@@ -77,11 +74,14 @@ public class SecretStoreDataStore : ISecretStoreDataStore
     public async Task<List<PasswordEntry>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default)
     {
         var entries = new List<PasswordEntry>();
+
         using (SqlConnection cn = await GetConnectionAsync(cancellationToken))
         {
-            entries = (await cn.QueryAsync<PasswordEntry>("dbo.GetPasswordEntries", null, commandTimeout: 0, commandType: CommandType.StoredProcedure)).ToList();
+            var result =  (await cn.QueryAsync<PasswordEntry>("dbo.GetPasswordEntries", null, commandTimeout: 0, commandType: CommandType.StoredProcedure)).ToList();
+            entries = result?.ToList() ?? [];
         }
-            return entries;
+
+        return entries;
     }
 
     public async Task UpdatePasswordEntryAsync(PasswordEntry entry, CancellationToken cancellationToken = default)

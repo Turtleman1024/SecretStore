@@ -4,9 +4,9 @@ namespace SecretStore.DataStore.Interface;
 
 public interface ISecretStoreDataStore
 {
-    Task<List<PasswordEntry?>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default);
+    Task<List<PasswordEntry>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default);
 
-    Task<PasswordEntry?> GetPasswordEntryAsync(int entryId, CancellationToken cancellationToken = default);
+    Task<PasswordEntry> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default);
 
     Task<int> CreatePasswordEntryAsync(PasswordEntry entry, CancellationToken cancellationToken = default);
 

@@ -5,6 +5,7 @@ using SecretStore.Business.Services;
 using SecretStore.DataStore.Interface;
 using SecretStore.DataStore.MsSqlStore;
 using SecretStore.Options;
+using SecretStore.services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,12 @@ services.AddSwaggerGen(options =>
 
 services.AddTransient<IPasswordEntriesBusinessService, PasswordEntriesBusinessService>();
 services.AddTransient<ISecretStoreDataStore, SecretStoreDataStore>();
+
+// Register PasswordEncryptionService with a key from configuration or environment
+var encryptionKey = builder.Configuration["EncryptionKey"]
+                    ?? throw new InvalidOperationException("EncryptionKey is not set in configuration.");
+builder.Services.AddSingleton<IPasswordEncryptionService>(new PasswordEncryptionService(encryptionKey));
+
 
 services.AddCors(options =>
 {

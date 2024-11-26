@@ -5,7 +5,7 @@ namespace SecretStore.Business.Interfaces;
 
 public interface IPasswordEntriesBusinessService
 {
-    Task<List<PasswordEntry?>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default);
+    Task<List<PasswordEntry>> GetPasswordEntriesAsync(CancellationToken cancellationToken = default);
 
     Task<PasswordEntry?> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default);
 
