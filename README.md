@@ -20,4 +20,4 @@ The API encrypts the password using a specified encryption key, ensuring that se
 
 
 ## Notes
-- This is api is still a work in progress
+- This api is still a work in progress
