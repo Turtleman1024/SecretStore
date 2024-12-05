@@ -13,7 +13,7 @@
             public const string GetPasswordEntryById = Base + "/entry/{entryId}";
             public const string CreatePasswordEntry = Base + "/entry";
             public const string UpdatePasswordEntry = Base + "/entry/{entryId}";
-            public const string DeletePasswordEntry = Base + "/entry/remove/{entryId}";
+            public const string DeletePasswordEntry = Base + "/entry/{entryId}";
             public const string SearchForPasswordEntry = Base + "/entry/search-owner/{searchValue}";
         }
     }

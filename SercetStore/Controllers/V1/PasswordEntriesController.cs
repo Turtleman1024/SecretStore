@@ -21,6 +21,8 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// </summary>
     /// <returns>List of User Passwords</returns>
     [HttpGet, Route(ApiRoutes.Entries.GetPasswordEntries, Name = "GetPasswordEntriesAsync")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetPasswordEntriesAsync(CancellationToken cancellationToken = default)
     {
         var passwordEntries = await _businessService.GetPasswordEntriesAsync(cancellationToken);
@@ -39,7 +41,9 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// <param name="entryId">The password entry id</param>
     /// <returns>The password entry</returns>
     [HttpGet, Route(ApiRoutes.Entries.GetPasswordEntryById, Name = "GetPasswordEntryByIdAsync")]
-    public async Task<IActionResult> GetPasswordEntryByIdAsync(int entryId, CancellationToken cancellationToken = default)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetPasswordEntryByIdAsync([FromRoute] int entryId, CancellationToken cancellationToken = default)
     {
         var entry = await _businessService.GetPasswordEntryByIdAsync(entryId, cancellationToken);
         if (entry == null)
@@ -56,6 +60,8 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// <param name="newOwner">The new entry</param>
     /// <returns>The created entry </returns>
     [HttpPost, Route(ApiRoutes.Entries.CreatePasswordEntry, Name = "CreatePasswordEntryAsync")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreatePasswordEntryAsync([FromBody] PasswordEntry entry, CancellationToken cancellationToken = default)
     {
         var result = await _businessService.CreatePasswordEntryAsync(entry, cancellationToken);
@@ -75,7 +81,10 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// <param name="entryPatch">The field to patch</param>
     /// <returns>The patched entry</returns>
     [HttpPatch, Route(ApiRoutes.Entries.UpdatePasswordEntry, Name = "UpdatePasswordEntryAsync")]
-    public async Task<IActionResult> UpdatePasswordEntryAsync(int entryId, [FromBody] JsonPatchDocument<PasswordEntry> entryPatch, CancellationToken cancellationToken = default)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpdatePasswordEntryAsync([FromRoute] int entryId, [FromBody] JsonPatchDocument<PasswordEntry> entryPatch, CancellationToken cancellationToken = default)
     {
         if (entryPatch == null || entryPatch.Operations.Count == 0)
         {
@@ -97,7 +106,9 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     /// </summary>
     /// <param name="ownerId">The current entry id</param>
     [HttpDelete, Route(ApiRoutes.Entries.DeletePasswordEntry, Name = "DeletePasswordEntryAsync")]
-    public async Task<IActionResult> DeletePasswordEntryAsync(int entryId, CancellationToken cancellationToken = default)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeletePasswordEntryAsync([FromRoute] int entryId, CancellationToken cancellationToken = default)
     {
         var deleted = await _businessService.DeletePasswordEntryAsync(entryId);
 

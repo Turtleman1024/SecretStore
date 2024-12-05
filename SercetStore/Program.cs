@@ -36,7 +36,7 @@ services.AddTransient<ISecretStoreDataStore, SecretStoreDataStore>();
 // Register PasswordEncryptionService with a key from configuration or environment
 var encryptionKey = builder.Configuration["EncryptionKey"]
                     ?? throw new InvalidOperationException("EncryptionKey is not set in configuration.");
-builder.Services.AddSingleton<IPasswordEncryptionService>(new PasswordEncryptionService(encryptionKey));
+services.AddSingleton<IPasswordEncryptionService>(new PasswordEncryptionService(encryptionKey));
 
 
 services.AddCors(options =>
@@ -44,7 +44,7 @@ services.AddCors(options =>
     options.AddPolicy(name: SecretStoreAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost:3000")
+                          builder.WithOrigins("http://localhost:3001")
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                       });
