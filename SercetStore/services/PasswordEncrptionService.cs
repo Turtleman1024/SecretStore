@@ -7,19 +7,28 @@ namespace SecretStore.services;
 
 public class PasswordEncryptionService : IPasswordEncryptionService
 {
-    private readonly byte[] _key;
-    private readonly byte[] _iv;
+    private byte[]? _key;
+    private byte[]? _iv;
 
-    public PasswordEncryptionService(string encryptionKey)
+    public void Initialize(string encryptionKey)
     {
-        // Derive a 32-byte key and a 16-byte IV from the provided encryptionKey
         using var sha256 = SHA256.Create();
         _key = sha256.ComputeHash(Encoding.UTF8.GetBytes(encryptionKey));
-        _iv = _key.Take(16).ToArray(); // Use the first 16 bytes as IV
+        _iv = _key.Take(16).ToArray();
+    }
+
+    public void EnsureInitialized()
+    {
+        if (_key == null || _iv == null)
+        {
+            throw new InvalidOperationException("Encryption service is not initialized. Load the encryption key first.");
+        }
     }
 
     public string? Encrypt(string? plainText)
     {
+        EnsureInitialized();
+
         // Check if the input string is null, return an empty string if it is.
         if (plainText == null)
         {
@@ -43,6 +52,8 @@ public class PasswordEncryptionService : IPasswordEncryptionService
 
     public string? Decrypt(string? cipherText)
     {
+        EnsureInitialized();
+
         // Check if the input string is null, return an empty string if it is.
         if (cipherText == null)
         {

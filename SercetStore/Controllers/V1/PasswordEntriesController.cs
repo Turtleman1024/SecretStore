@@ -5,14 +5,16 @@ using Microsoft.Extensions.Logging;
 using SecretStore.Business.Interfaces;
 using SecretStore.Contracts.V1;
 using SecretStore.Models;
+using SecretStore.services;
 using System.Threading;
 
 namespace SecretStore.Controllers.V1;
 
 [ApiController]
 [Route("")]
-public class PasswordEntriesController(IPasswordEntriesBusinessService businessService, ILogger<PasswordEntriesController> logger) : ControllerBase
+public class PasswordEntriesController(IPasswordEntriesBusinessService businessService, ILogger<PasswordEntriesController> logger, IPasswordEncryptionService passwordEncryptionService) : ControllerBase
 {
+    private readonly IPasswordEncryptionService _passwordEncryptionService = passwordEncryptionService ?? throw new ArgumentNullException(nameof(passwordEncryptionService));
     private readonly IPasswordEntriesBusinessService _businessService = businessService ?? throw new ArgumentNullException(nameof(businessService));
     private readonly ILogger<PasswordEntriesController> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
@@ -25,14 +27,23 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetPasswordEntriesAsync(CancellationToken cancellationToken = default)
     {
-        var passwordEntries = await _businessService.GetPasswordEntriesAsync(cancellationToken);
-
-        if ((passwordEntries?.Count ?? 0) == 0)
+        try
         {
-            return NotFound("Could not find any Enrty");
-        }
+            _passwordEncryptionService.EnsureInitialized();
 
-        return Ok(passwordEntries);
+            var passwordEntries = await _businessService.GetPasswordEntriesAsync(cancellationToken);
+
+            if ((passwordEntries?.Count ?? 0) == 0)
+            {
+                return NotFound("Could not find any Enrty");
+            }
+
+            return Ok(passwordEntries);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error: {ex.Message}");
+        }
     }
 
     /// <summary>
@@ -43,15 +54,25 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     [HttpGet, Route(ApiRoutes.Entries.GetPasswordEntryById, Name = "GetPasswordEntryByIdAsync")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetPasswordEntryByIdAsync([FromRoute] int entryId, CancellationToken cancellationToken = default)
     {
-        var entry = await _businessService.GetPasswordEntryByIdAsync(entryId, cancellationToken);
-        if (entry == null)
+        try
         {
-            return NotFound($"Could not find Entry Id: {entryId}");
-        }
+            _passwordEncryptionService.EnsureInitialized();
 
-        return Ok(entry);
+            var entry = await _businessService.GetPasswordEntryByIdAsync(entryId, cancellationToken);
+            if (entry == null)
+            {
+                return NotFound($"Could not find Entry Id: {entryId}");
+            }
+
+            return Ok(entry);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error: {ex.Message}");
+        }
     }
 
     /// <summary>
@@ -62,16 +83,26 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     [HttpPost, Route(ApiRoutes.Entries.CreatePasswordEntry, Name = "CreatePasswordEntryAsync")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreatePasswordEntryAsync([FromBody] PasswordEntry entry, CancellationToken cancellationToken = default)
     {
-        var result = await _businessService.CreatePasswordEntryAsync(entry, cancellationToken);
-
-        if (result == null)
+        try
         {
-            return BadRequest("Could not Create Entry");
-        }
+            _passwordEncryptionService.EnsureInitialized();
 
-        return Ok(result);
+            var result = await _businessService.CreatePasswordEntryAsync(entry, cancellationToken);
+
+            if (result == null)
+            {
+                return BadRequest("Could not Create Entry");
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error: {ex.Message}");
+        }
     }
 
     /// <summary>
@@ -84,21 +115,31 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> UpdatePasswordEntryAsync([FromRoute] int entryId, [FromBody] JsonPatchDocument<PasswordEntry> entryPatch, CancellationToken cancellationToken = default)
     {
-        if (entryPatch == null || entryPatch.Operations.Count == 0)
+        try
         {
-            return BadRequest(new { Message = "Invalid patch document." });
+            _passwordEncryptionService.EnsureInitialized();
+
+            if (entryPatch == null || entryPatch.Operations.Count == 0)
+            {
+                return BadRequest(new { Message = "Invalid patch document." });
+            }
+
+            var updatedEntry = await _businessService.UpdatePasswordEntryAsync(entryId, entryPatch, cancellationToken);
+
+            if (updatedEntry == null)
+            {
+                return NotFound(new { Message = $"Password entry with ID {entryId} not found." });
+            }
+
+            return Ok(updatedEntry);
         }
-
-        var updatedEntry = await _businessService.UpdatePasswordEntryAsync(entryId, entryPatch, cancellationToken);
-
-        if (updatedEntry == null)
+        catch (Exception ex)
         {
-            return NotFound(new { Message = $"Password entry with ID {entryId} not found." });
+            return StatusCode(500, $"Error: {ex.Message}");
         }
-
-        return Ok(updatedEntry);
     }
 
     /// <summary>
@@ -110,14 +151,23 @@ public class PasswordEntriesController(IPasswordEntriesBusinessService businessS
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeletePasswordEntryAsync([FromRoute] int entryId, CancellationToken cancellationToken = default)
     {
-        var deleted = await _businessService.DeletePasswordEntryAsync(entryId);
-
-        if (deleted)
+        try
         {
-            return Ok();
-        }
+            _passwordEncryptionService.EnsureInitialized();
 
-        return NotFound("Entry has already been deleted or does not exist");
+            var deleted = await _businessService.DeletePasswordEntryAsync(entryId, cancellationToken);
+
+            if (deleted)
+            {
+                return Ok();
+            }
+
+            return NotFound("Entry has already been deleted or does not exist");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error: {ex.Message}");
+        }
 
     }
 }
