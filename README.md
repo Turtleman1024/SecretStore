@@ -15,8 +15,8 @@ The API encrypts the password using a specified encryption key, ensuring that se
 - **Encryption**: Passwords are encrypted before being stored, using AES encryption.
 
 ## Security
-- Passwords are encrypted using AES encryption with the EncryptionKey.
-- The EncryptionKey is stored securely using User Secrets to ensure it is not exposed in the codebase or version control.
+- Passwords are encrypted using AES encryption using a user specified EncryptionKey.
+- The EncryptionKey is loaded using the Login Controller endpoint [https://localhost:44320/v1/load-key](https://localhost:44320/v1/load-key).
 
 
 ## Notes
